@@ -1,5 +1,5 @@
 //
-//  NoteTableViewController.swift
+//  AddEditTableViewController.swift
 //  ProjetIOS
 //
 //  Created by ruello nathan on 04/03/2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NoteTableViewController: UITableViewController {
+class AddEditTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,9 +24,6 @@ class NoteTableViewController: UITableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 0
-    }
-    @IBAction func unwindNoteTableView(for unwindSegue: UIStoryboardSegue) {
-        
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

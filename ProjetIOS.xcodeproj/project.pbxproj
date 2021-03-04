@@ -14,6 +14,7 @@
 		58A0796E25F0DA950047C82B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58A0796D25F0DA950047C82B /* Assets.xcassets */; };
 		58A0797125F0DA950047C82B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58A0796F25F0DA950047C82B /* LaunchScreen.storyboard */; };
 		58A0797A25F0DB0C0047C82B /* NoteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A0797925F0DB0C0047C82B /* NoteTableViewController.swift */; };
+		58A0797D25F0E1FC0047C82B /* AddEditTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A0797C25F0E1FC0047C82B /* AddEditTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		58A0797025F0DA950047C82B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		58A0797225F0DA950047C82B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58A0797925F0DB0C0047C82B /* NoteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewController.swift; sourceTree = "<group>"; };
+		58A0797C25F0E1FC0047C82B /* AddEditTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				58A0796625F0DA930047C82B /* SceneDelegate.swift */,
 				58A0796825F0DA930047C82B /* ViewController.swift */,
 				58A0796A25F0DA930047C82B /* Main.storyboard */,
+				58A0797C25F0E1FC0047C82B /* AddEditTableViewController.swift */,
 				58A0797925F0DB0C0047C82B /* NoteTableViewController.swift */,
 				58A0796D25F0DA950047C82B /* Assets.xcassets */,
 				58A0796F25F0DA950047C82B /* LaunchScreen.storyboard */,
@@ -144,6 +147,7 @@
 				58A0797A25F0DB0C0047C82B /* NoteTableViewController.swift in Sources */,
 				58A0796525F0DA930047C82B /* AppDelegate.swift in Sources */,
 				58A0796725F0DA930047C82B /* SceneDelegate.swift in Sources */,
+				58A0797D25F0E1FC0047C82B /* AddEditTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
