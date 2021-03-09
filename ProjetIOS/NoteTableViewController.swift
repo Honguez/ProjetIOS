@@ -8,7 +8,14 @@
 import UIKit
 
 class NoteTableViewController: UITableViewController {
-
+    
+    var notes: [Note]=[
+        Note(nom: "Note1", date: "02/10/2021", heure: "10:30"),
+        Note(nom: "Note2", date: "03/11/2021", heure: "08:45"),
+        Note(nom: "Note3", date: "04/12/2021", heure: "02:15"),
+        Note(nom: "Note4", date: "05/13/2021", heure: "15:30")
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,7 +30,7 @@ class NoteTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
     @IBAction func unwindNoteTableView(for unwindSegue: UIStoryboardSegue) {
         
@@ -31,18 +38,20 @@ class NoteTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return notes.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath)
 
-        // Configure the cell...
-
+        let note = notes[indexPath.row]
+        
+        cell.textLabel?.text = note.nom
+        cell.detailTextLabel?.text = "\(note.date)  \(note.heure)"
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -52,25 +61,29 @@ class NoteTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            notes.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
 
-    /*
+    
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+        let movednote = notes.remove(at:fromIndexPath.row)
+    
+        notes.insert(movednote, at: to.row)
+        tableView.reloadData()
+        
     }
-    */
-
+    
+    
     /*
     // Override to support conditional rearranging of the table view.
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
