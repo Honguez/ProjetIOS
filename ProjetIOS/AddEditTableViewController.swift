@@ -6,11 +6,14 @@
 //
 
 import UIKit
+import MapKit
 
 class AddEditTableViewController: UITableViewController {
 	
     @IBOutlet weak var titreTF: UITextField!
     @IBOutlet weak var contenuTF: UITextField!
+    @IBOutlet weak var saveEditCreateButton: UIBarButtonItem!
+    
     
     
     var note : Note?
@@ -22,13 +25,30 @@ class AddEditTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        saveEditCreateButton.isEnabled = false
         if let note = self.note{
             titreTF.text = note.titre
             contenuTF.text = note.contenu
             //location
             
-        }    }
-
+        }
+        
+    }
+    @IBAction func EditingDidChangeContenu(_ sender: UITextField) {
+        if titreTF.text != "" && contenuTF.text != "" {
+            saveEditCreateButton.isEnabled = true
+        }else{
+            saveEditCreateButton.isEnabled = false
+        }
+    }
+    
+    @IBAction func EditingDidChangeTitle(_ sender: UITextField) {
+        if titreTF.text != "" && contenuTF.text != "" {
+            saveEditCreateButton.isEnabled = true
+        }else{
+            saveEditCreateButton.isEnabled = false
+        }
+    }
     // MARK: - Table view data source
 /*
     override func numberOfSections(in tableView: UITableView) -> Int {

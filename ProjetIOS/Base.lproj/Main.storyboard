@@ -85,6 +85,9 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="EditingDidChangeTitle:" destination="UE6-fu-p0c" eventType="editingChanged" id="PFS-tX-VT1"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -105,6 +108,9 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="EditingDidChangeContenu:" destination="UE6-fu-p0c" eventType="editingChanged" id="6uN-Cj-d9m"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -143,6 +149,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="contenuTF" destination="57X-bc-HVe" id="L8Q-gq-B73"/>
+                        <outlet property="saveEditCreateButton" destination="iqP-jI-ikz" id="HRp-Qr-VA8"/>
                         <outlet property="titreTF" destination="4Jc-Qp-Gys" id="Tte-s5-FW9"/>
                     </connections>
                 </tableViewController>
