@@ -10,10 +10,10 @@ import UIKit
 class NoteTableViewController: UITableViewController {
     
     var notes: [Note]=[
-        Note(nom: "Note1", date: "02/10/2021", heure: "10:30"),
-        Note(nom: "Note2", date: "03/11/2021", heure: "08:45"),
-        Note(nom: "Note3", date: "04/12/2021", heure: "02:15"),
-        Note(nom: "Note4", date: "05/13/2021", heure: "15:30")
+        Note(titre: "Note1", contenu:"test1", date: "02/10/2021 10:30", location: "Paris"),
+        Note(titre: "Note2", contenu:"test2", date: "03/11/2021 08:45", location: "Belfort"),
+        Note(titre: "Note3", contenu:"test3", date: "04/12/2021 02:15", location: "Montpelier"),
+        Note(titre: "Note4", contenu:"test4", date: "05/12/2021 12:15", location: "Londre"),
     ]
     
     override func viewDidLoad() {
@@ -32,8 +32,24 @@ class NoteTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-    @IBAction func unwindNoteTableView(for unwindSegue: UIStoryboardSegue) {
-        
+
+    @IBAction func unwindNoteTableView(segue: UIStoryboardSegue) {
+        if segue.identifier == "saveUnwind"{
+            let sourceVC = segue.source as! AddEditTableViewController
+            
+            if let note = sourceVC.note {
+                if let selectedIndexPath = tableView.indexPathForSelectedRow{
+                    //Modification
+                    self.notes[selectedIndexPath.row] = note
+                    tableView.reloadData()
+                }else{
+                    //Création
+                    self.notes.append(note)
+                    tableView.reloadData()
+                }
+                       
+            }
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -47,8 +63,8 @@ class NoteTableViewController: UITableViewController {
 
         let note = notes[indexPath.row]
         
-        cell.textLabel?.text = note.nom
-        cell.detailTextLabel?.text = "\(note.date)  \(note.heure)"
+        cell.textLabel?.text = note.titre
+        cell.detailTextLabel?.text = note.date
         return cell
     }
     
@@ -92,14 +108,26 @@ class NoteTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "EditNote"{//cas où l'utilisateur clique sur une ligne
+            
+            let indexPath = tableView.indexPathForSelectedRow!
+            let note = notes[indexPath.row]
+            let navController = segue.destination as! UINavigationController
+            let addEditVC = navController.topViewController as! AddEditTableViewController
+            addEditVC.note = note
+            
+            
+        }
+        
     }
-    */
+    
+    
 
 }

@@ -8,7 +8,12 @@
 import UIKit
 
 class AddEditTableViewController: UITableViewController {
-
+	
+    @IBOutlet weak var titreTF: UITextField!
+    @IBOutlet weak var contenuTF: UITextField!
+    
+    
+    var note : Note?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,19 +22,24 @@ class AddEditTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
+        if let note = self.note{
+            titreTF.text = note.titre
+            contenuTF.text = note.contenu
+            //location
+            
+        }    }
 
     // MARK: - Table view data source
-
+/*
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 0
-    }
-
+    }*/
+/*
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 0
-    }
+    }*/
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -76,14 +86,29 @@ class AddEditTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "saveUnwind"{
+            
+            let titre = titreTF.text ?? ""
+            let contenu = contenuTF.text ?? ""
+            
+            //conversion Date to String
+            let dateForm = DateFormatter()
+            dateForm.dateFormat = "dd/MM/YYYY  HH:mm"
+            let date = dateForm.string(from:Date())
+            
+            let location = ""
+            self.note = Note(titre: titre, contenu: contenu, date : date, location: location)
+            
+        }
+
     }
-    */
+    
 
 }

@@ -8,8 +8,9 @@
 import Foundation
 
 struct Note{
-    var nom: String
+    var titre: String
+    var contenu : String
     var date : String
-    var heure : String
+    var location : String
 
 }

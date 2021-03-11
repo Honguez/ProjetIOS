@@ -40,7 +40,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="5AX-55-GWE" kind="presentation" id="R4F-ag-ahT"/>
+                                    <segue destination="5AX-55-GWE" kind="presentation" identifier="EditNote" id="R4F-ag-ahT"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -132,11 +132,19 @@
                     <navigationItem key="navigationItem" id="yy3-VZ-9Qn">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="F0M-tV-0YN">
                             <connections>
-                                <segue destination="TyW-2R-NCE" kind="unwind" unwindAction="unwindNoteTableViewFor:" id="SA9-Qo-NEh"/>
+                                <segue destination="TyW-2R-NCE" kind="unwind" identifier="cancelUnwind" unwindAction="unwindNoteTableViewWithSegue:" id="erW-oi-bEU"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="iqP-jI-ikz"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="iqP-jI-ikz">
+                            <connections>
+                                <segue destination="TyW-2R-NCE" kind="unwind" identifier="saveUnwind" unwindAction="unwindNoteTableViewWithSegue:" id="Ujh-H3-7TW"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="contenuTF" destination="57X-bc-HVe" id="L8Q-gq-B73"/>
+                        <outlet property="titreTF" destination="4Jc-Qp-Gys" id="Tte-s5-FW9"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TIY-Uu-oSc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="TyW-2R-NCE" userLabel="Exit" sceneMemberID="exit"/>
