@@ -10,6 +10,8 @@ import MapKit
 
 class NoteTableViewController: UITableViewController {
     
+    @IBOutlet var mapView : MKMapView!
+    
     var notes: [Note]=[
         Note(titre: "Note1", contenu:"test1", date: "02/10/2021 10:30", location: "Paris"),
         Note(titre: "Note2", contenu:"test2", date: "03/11/2021 08:45", location: "Belfort"),
