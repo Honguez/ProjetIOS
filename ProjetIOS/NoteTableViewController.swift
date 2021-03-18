@@ -12,12 +12,7 @@ class NoteTableViewController: UITableViewController {
     
     @IBOutlet var mapView : MKMapView!
     
-    var notes: [Note]=[
-        Note(titre: "Note1", contenu:"test1", date: "02/10/2021 10:30", location: "Paris"),
-        Note(titre: "Note2", contenu:"test2", date: "03/11/2021 08:45", location: "Belfort"),
-        Note(titre: "Note3", contenu:"test3", date: "04/12/2021 02:15", location: "Montpelier"),
-        Note(titre: "Note4", contenu:"test4", date: "05/12/2021 12:15", location: "Londre"),
-    ]
+    var notes: [Note]=[]
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct Note{
     var titre: String
     var contenu : String
     var date : String
-    var location : String
+    var location :CLLocationCoordinate2D
 
 }

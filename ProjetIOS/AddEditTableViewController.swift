@@ -17,6 +17,9 @@ class AddEditTableViewController: UITableViewController, CLLocationManagerDelega
     @IBOutlet var mapView : MKMapView!
     
     let manager = CLLocationManager()
+    private var location : CLLocation!
+    
+    
     
     
     
@@ -24,7 +27,7 @@ class AddEditTableViewController: UITableViewController, CLLocationManagerDelega
     var note : Note?
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -39,6 +42,11 @@ class AddEditTableViewController: UITableViewController, CLLocationManagerDelega
         }
     }
         
+    @IBAction func UpdateLoc(_ sender: Any) {
+        
+        render(location)
+        
+    }
     override func viewDidAppear(_ animated: Bool){
         super.viewDidAppear(animated)
         manager.desiredAccuracy = kCLLocationAccuracyBest
@@ -48,10 +56,10 @@ class AddEditTableViewController: UITableViewController, CLLocationManagerDelega
     }
         
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
-        if let location = locations.first{
-            manager.stopUpdatingLocation()
+
+            location = locations.first
             render(location)
-        }
+        
     }
         
     func render(_ location: CLLocation){
@@ -155,8 +163,8 @@ class AddEditTableViewController: UITableViewController, CLLocationManagerDelega
             dateForm.dateFormat = "dd/MM/YYYY  HH:mm"
             let date = dateForm.string(from:Date())
             
-            let location = ""
-            self.note = Note(titre: titre, contenu: contenu, date : date, location: location)
+            let coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            self.note = Note(titre: titre, contenu: contenu, date : date, location: coordinate)
             
         }
 
